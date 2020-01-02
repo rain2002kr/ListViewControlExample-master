@@ -4,9 +4,11 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ListView
 import kotlinx.android.synthetic.main.activity_main.*
-
+//var mItems = arrayListOf(arrayListOf<TelItem>())
+//private var RECV_LIST :Int  = 0
+//private var SEND_LIST :Int  = 1
+//private var mAdapters = arrayListOf<HListAdapter>()
 class MainActivity : AppCompatActivity() {
-    private var mItems = arrayListOf<TelItem>()
 
     private var mItem = arrayListOf<TelItem>()
     private var mItem2 = arrayListOf<TelItem>()
@@ -16,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        mAdapter =  HListAdapter(this,mItem)
+        mAdapter =   HListAdapter(this,mItem)
         mAdapter2 =  HListAdapter(this,mItem2)
         listView.adapter = mAdapter
         listView2.adapter = mAdapter2
@@ -79,7 +81,7 @@ class MainActivity : AppCompatActivity() {
             (mAdapter2.count downTo 0)
                     .filter { checkedItem.get(it) }
                     .forEach { mItem2[it].Name = editText.text.toString()
-                        mItem2[it].Phone = editText2.text.toString()
+                               mItem2[it].Phone = editText2.text.toString()
                     }
 
             mAdapter2.notifyDataSetChanged()
